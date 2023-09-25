@@ -72,18 +72,20 @@ namespace RAA_INT_M01C
                     Parameter roomLevel = rInst.LookupParameter("Level");
                     Parameter roomArea = rInst.get_Parameter(BuiltInParameter.ROOM_AREA);
                    
-                   
+
                     //Create fields
                     ScheduleField rNumberField = curSchedule.Definition.AddField(ScheduleFieldType.Instance, roomNumber.Id);
                     ScheduleField rNameField = curSchedule.Definition.AddField(ScheduleFieldType.Instance, roomName.Id);
                     ScheduleField rDeptField = curSchedule.Definition.AddField(ScheduleFieldType.Instance, roomDepartmentN.Id);
                     ScheduleField rCommentsField = curSchedule.Definition.AddField(ScheduleFieldType.Instance, roomComments.Id);
                     ScheduleField rLevelField = curSchedule.Definition.AddField(ScheduleFieldType.Instance, roomLevel.Id);
-                   // ScheduleField rAreaField = curSchedule.Definition.AddField(ScheduleFieldType.Instance, roomArea.Id);
+                    ScheduleField rAreaField = curSchedule.Definition.AddField(ScheduleFieldType.ViewBased, roomArea.Id);
                     
-
+                    //Hide field (level)
                     rLevelField.IsHidden = true;
 
+                    //Display total (Calculate totals)
+                    rAreaField.DisplayType = ScheduleFieldDisplayType.Totals;
 
                     //Filter by department 
                     ScheduleFilter deptFilter = new ScheduleFilter (rDeptField.FieldId, ScheduleFilterType.Equal, name);
@@ -106,6 +108,8 @@ namespace RAA_INT_M01C
                     curSchedule.Definition.ShowGrandTotal = true;
                     curSchedule.Definition.ShowGrandTotalTitle = true;
                     curSchedule.Definition.ShowGrandTotalCount = true;
+                    
+                    
 
                 }
 
