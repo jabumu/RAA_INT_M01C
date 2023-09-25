@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Command RAA_INT_M01C</Text>
+    <Description>Some description for RAA_INT_M01C</Description>
+    <Assembly>RAA_INT_M01C.dll</Assembly>
+    <FullClassName>RAA_INT_M01C.Command</FullClassName>
+    <ClientId>415F3C9E-C0FD-4B76-BB3C-8845E3016653</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Application RAA_INT_M01C</Name>
+    <Assembly>RAA_INT_M01C.dll</Assembly>
+    <FullClassName>RAA_INT_M01C.App</FullClassName>
+    <ClientId>8D75DC13-636A-4E00-88B5-F0CA9E3875DF</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
