@@ -72,7 +72,6 @@ namespace RAA_INT_M01C
                     Parameter roomLevel = rInst.LookupParameter("Level");
                     Parameter roomArea = rInst.get_Parameter(BuiltInParameter.ROOM_AREA);
                    
-
                     //Create fields
                     ScheduleField rNumberField = curSchedule.Definition.AddField(ScheduleFieldType.Instance, roomNumber.Id);
                     ScheduleField rNameField = curSchedule.Definition.AddField(ScheduleFieldType.Instance, roomName.Id);
@@ -109,28 +108,24 @@ namespace RAA_INT_M01C
                     curSchedule.Definition.ShowGrandTotalTitle = true;
                     curSchedule.Definition.ShowGrandTotalCount = true;
 
-                    
-
                 }
 
-                //BONUS//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                /////////////BONUS////////////////////
                 ElementId catRo = new ElementId(BuiltInCategory.OST_Rooms);
                 ViewSchedule allDeptSchedule = ViewSchedule.CreateSchedule(doc, catRo);
                 allDeptSchedule.Name = "All Departments";
 
                 Element inst = collectorRooms.Last();
 
-
                 //Parameters
                 Parameter roomAllDDepartment = inst.get_Parameter(BuiltInParameter.ROOM_DEPARTMENT);
                 Parameter roomAllDArea = inst.get_Parameter(BuiltInParameter.ROOM_AREA);
-
 
                 //Create fields
                 ScheduleField rAllDDeptField = allDeptSchedule.Definition.AddField(ScheduleFieldType.Instance, roomAllDDepartment.Id);
                 ScheduleField rAllDAreaField = allDeptSchedule.Definition.AddField(ScheduleFieldType.ViewBased, roomAllDArea.Id);
 
-
+                // Show total area
                 rAllDAreaField.DisplayType = ScheduleFieldDisplayType.Totals;
 
                 //Group by department 
@@ -144,7 +139,6 @@ namespace RAA_INT_M01C
                 allDeptSchedule.Definition.IsItemized = false;
 
                 //Set totals
-                
                 allDeptSchedule.Definition.ShowGrandTotal = true;
                 allDeptSchedule.Definition.ShowGrandTotalTitle = true;
                 allDeptSchedule.Definition.ShowGrandTotalCount = true;
