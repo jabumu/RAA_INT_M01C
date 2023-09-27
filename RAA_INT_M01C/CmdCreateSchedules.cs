@@ -110,7 +110,7 @@ namespace RAA_INT_M01C
 
                 }
 
-                /////////////BONUS////////////////////
+                /////////////BONUS//////////////////
                 ElementId catRo = new ElementId(BuiltInCategory.OST_Rooms);
                 ViewSchedule allDeptSchedule = ViewSchedule.CreateSchedule(doc, catRo);
                 allDeptSchedule.Name = "All Departments";
@@ -130,10 +130,7 @@ namespace RAA_INT_M01C
 
                 //Group by department 
                 ScheduleSortGroupField sortByDept = new ScheduleSortGroupField(rAllDDeptField.FieldId);
-                //sortByDept.ShowHeader = true;
-               // sortByDept.ShowFooter = true;
-               // sortByDept.ShowBlankLine = true;
-
+                
                 allDeptSchedule.Definition.AddSortGroupField(sortByDept);
 
                 allDeptSchedule.Definition.IsItemized = false;
@@ -143,6 +140,7 @@ namespace RAA_INT_M01C
                 allDeptSchedule.Definition.ShowGrandTotalTitle = true;
                 allDeptSchedule.Definition.ShowGrandTotalCount = true;
 
+                
                 tx.Commit();
             }
 
